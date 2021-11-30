@@ -27,5 +27,12 @@ namespace dotnet_rpg.Controllers
             // If we don't find a character matching our id, return our default value.
             return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
+
+        [HttpPost]
+        public ActionResult<List<Character>> AddCharacter(Character newcharacter) 
+        {
+            characters.Add(newcharacter);
+            return Ok(characters);
+        }
     }
 }
